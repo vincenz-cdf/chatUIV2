@@ -44,7 +44,7 @@ class _SignupScreenState extends State<SignupScreen> {
       email: _emailController.text,
       password: _passwordController.text,
       username: _usernameController.text,
-      //bio: _bioController.text,
+      bio: _bioController.text,
       file: _image!,
     );
 
@@ -145,14 +145,14 @@ class _SignupScreenState extends State<SignupScreen> {
               ),
               const SizedBox(height: 24),
               /******************** BIO INPUT ********************/
-              /*
+
               TextFieldInput(
                 textEditingController: _bioController,
                 hintText: "Votre bio",
                 textInputType: TextInputType.text,
               ),
               const SizedBox(height: 24),
-              */
+
               /******************** BOUTON CREER COMPTE ********************/
               InkWell(
                 onTap: signUpUser,
