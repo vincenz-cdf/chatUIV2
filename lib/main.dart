@@ -7,7 +7,6 @@ import 'package:instalike/responsive/mobile_screen_layout.dart';
 import 'package:instalike/responsive/responsive_layout_screen.dart';
 import 'package:instalike/responsive/web_screen_layout.dart';
 import 'package:instalike/screens/login_screen.dart';
-import 'package:instalike/screens/signup_screen.dart';
 import 'package:instalike/utils/colors.dart';
 import 'package:provider/provider.dart';
 

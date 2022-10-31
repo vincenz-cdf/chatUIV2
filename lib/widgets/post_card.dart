@@ -125,7 +125,6 @@ class PostCard extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                /*
                 DefaultTextStyle(
                   style: Theme.of(context)
                       .textTheme
@@ -136,7 +135,6 @@ class PostCard extends StatelessWidget {
                     style: Theme.of(context).textTheme.bodyText2,
                   ),
                 ),
-                */
                 Container(
                   width: double.infinity,
                   padding: const EdgeInsets.only(
