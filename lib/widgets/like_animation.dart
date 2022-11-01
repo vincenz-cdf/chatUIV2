@@ -6,7 +6,6 @@ class LikeAnimation extends StatefulWidget {
   final Duration duration;
   final VoidCallback? onEnd;
   final bool smallLike;
-
   const LikeAnimation(
       {super.key,
       required this.child,
@@ -29,7 +28,7 @@ class _LikeAnimationState extends State<LikeAnimation>
     super.initState();
     controller = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: widget.duration.inMicroseconds ~/ 2),
+      duration: Duration(milliseconds: widget.duration.inMilliseconds ~/ 2),
     );
     scale = Tween<double>(begin: 1, end: 1.2).animate(controller);
   }
@@ -48,9 +47,7 @@ class _LikeAnimationState extends State<LikeAnimation>
       await controller.forward();
       await controller.reverse();
       await Future.delayed(
-        const Duration(
-          milliseconds: 200,
-        ),
+        const Duration(milliseconds: 200),
       );
 
       if (widget.onEnd != null) {
@@ -65,6 +62,7 @@ class _LikeAnimationState extends State<LikeAnimation>
     controller.dispose();
   }
 
+  @override
   Widget build(BuildContext context) {
     return ScaleTransition(
       scale: scale,
