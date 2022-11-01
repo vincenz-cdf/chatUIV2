@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:instalike/models/user.dart';
 import 'package:instalike/providers/user_provider.dart';
+import 'package:instalike/resources/firestore_methods.dart';
 import 'package:instalike/utils/colors.dart';
 import 'package:instalike/widgets/like_animation.dart';
 import 'package:intl/intl.dart';
@@ -89,7 +90,9 @@ class _PostCardState extends State<PostCard> {
 
           /************** SECTION IMAGE *************/
           GestureDetector(
-            onDoubleTap: () {
+            onDoubleTap: () async {
+              await FirestoreMethods().likePost(
+                  widget.snap['postId'], user.uid, widget.snap['likes']);
               setState(() {
                 isLikeAnimating = true;
               });
@@ -129,11 +132,18 @@ class _PostCardState extends State<PostCard> {
                 isAnimating: widget.snap['likes'].contains(user.uid),
                 smallLike: true,
                 child: IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.favorite,
-                    color: Colors.red,
-                  ),
+                  onPressed: () async {
+                    await FirestoreMethods().likePost(
+                        widget.snap['postId'], user.uid, widget.snap['likes']);
+                  },
+                  icon: widget.snap['likes'].contains(user.uid)
+                      ? const Icon(
+                          Icons.favorite,
+                          color: Colors.red,
+                        )
+                      : const Icon(
+                          Icons.favorite_border,
+                        ),
                 ),
               ),
               IconButton(
