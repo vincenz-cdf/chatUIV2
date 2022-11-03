@@ -1,7 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:instalike/models/user.dart';
 import 'package:instalike/providers/user_provider.dart';
 import 'package:instalike/resources/firestore_methods.dart';
 import 'package:instalike/utils/colors.dart';
@@ -119,7 +118,7 @@ class _AddPostScreenState extends State<AddPostScreen> {
     return _file == null
         ? Center(
             child: IconButton(
-              icon: Icon(Icons.upload),
+              icon: const Icon(Icons.upload),
               onPressed: () => _selectImage(context),
             ),
           )

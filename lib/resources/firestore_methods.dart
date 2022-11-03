@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 import 'package:instalike/models/post.dart';
-import 'package:instalike/models/user.dart';
 import 'package:instalike/resources/storage_methods.dart';
 import 'package:uuid/uuid.dart';
 

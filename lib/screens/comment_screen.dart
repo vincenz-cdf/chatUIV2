@@ -7,7 +7,7 @@ import 'package:instalike/widgets/comment_card.dart';
 import 'package:provider/provider.dart';
 
 class CommentScreen extends StatefulWidget {
-  final snap;
+  final dynamic snap;
   const CommentScreen({super.key, required this.snap});
 
   @override
@@ -32,7 +32,7 @@ class _CommentScreenState extends State<CommentScreen> {
         title: const Text("Commentaires"),
         centerTitle: false,
       ),
-      body: CommentCard(),
+      body: const CommentCard(),
       bottomNavigationBar: SafeArea(
         child: Container(
           height: kToolbarHeight,
