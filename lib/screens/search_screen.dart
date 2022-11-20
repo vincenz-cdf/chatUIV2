@@ -24,15 +24,18 @@ class _SearchScreenState extends State<SearchScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: mobileBackgroundColor,
-        title: TextFormField(
-          decoration: const InputDecoration(
-            labelText: 'Rechercher un user',
+        title: Form(
+          child: TextFormField(
+            controller: searchController,
+            decoration:
+                const InputDecoration(labelText: 'Rechercher un utilisateur'),
+            onFieldSubmitted: (String _) {
+              setState(() {
+                isShowUsers = true;
+              });
+              print(_);
+            },
           ),
-          onFieldSubmitted: (String _) {
-            setState(() {
-              isShowUsers = true;
-            });
-          },
         ),
       ),
       body: isShowUsers
