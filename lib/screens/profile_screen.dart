@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:instalike/resources/auth_methods.dart';
 import 'package:instalike/resources/firestore_methods.dart';
+import 'package:instalike/screens/comment_screen.dart';
 import 'package:instalike/screens/login_screen.dart';
 import 'package:instalike/utils/colors.dart';
 import 'package:instalike/utils/utils.dart';
@@ -204,10 +205,19 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         DocumentSnapshot snap =
                             (snapshot.data! as dynamic).docs[index];
 
-                        return Container(
-                          child: Image(
-                            image: NetworkImage(snap['postUrl']),
-                            fit: BoxFit.cover,
+                        return InkWell(
+                          onTap: () => Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => CommentScreen(
+                                snap: snap,
+                              ),
+                            ),
+                          ),
+                          child: Container(
+                            child: Image(
+                              image: NetworkImage(snap['postUrl']),
+                              fit: BoxFit.cover,
+                            ),
                           ),
                         );
                       },
